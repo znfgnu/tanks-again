@@ -66,6 +66,9 @@ while running:
     if p2.bullet is not None:
         p2.bullet.update()
 
+    if p1.health <= 0 or p2.health <= 0:
+        running = False
+
     # 3. Render screen (draw things)
     screen.fill(GREEN)
 
