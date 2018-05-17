@@ -59,10 +59,11 @@ while running:
     # 2. Update game
     p1.update(p2)
     p2.update(p1)
-    if p1.bullet is not None:
-        p1.bullet.update()
-    if p2.bullet is not None:
-        p2.bullet.update()
+    for b in p1.bullets:
+        b.update()
+
+    for b in p2.bullets:
+        b.update()
 
     if p1.health <= 0 or p2.health <= 0:
         running = False
@@ -73,10 +74,12 @@ while running:
     # Draw things here
     p1.draw(screen)
     p2.draw(screen)
-    if p1.bullet is not None:
-        p1.bullet.draw(screen)
-    if p2.bullet is not None:
-        p2.bullet.draw(screen)
+
+    for b in p1.bullets:
+        b.draw(screen)
+    for b in p2.bullets:
+        b.draw(screen)
+
     pygame.display.update()
 
     # 4. Wait some time
