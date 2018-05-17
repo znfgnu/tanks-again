@@ -24,7 +24,10 @@ class Player:
         pygame.draw.line(sur, BLACK, (int(c.real), int(c.imag)), (int(d.real), int(d.imag)), 3)
 
         # Draw healthbar
-        v = -50-(self.radius+40)*1j     # Vector (-50, -(r+40))
+        if self.pos.imag > HEIGHT/2:
+            v = -50-(self.radius+40)*1j     # Vector (-50, -(r+40))
+        else:
+            v = -50 + (self.radius+20)*1j
         healthbar_pos = self.pos + v
         pygame.draw.rect(sur, BLACK, (int(healthbar_pos.real), int(healthbar_pos.imag), 100, 20))
         pygame.draw.rect(sur, WHITE, (int(healthbar_pos.real), int(healthbar_pos.imag), self.health, 20))
@@ -80,5 +83,3 @@ class Player:
 
     def fire_bullet(self):
         self.bullet = Bullet(self.pos, 10, self.dir)
-
-

@@ -15,7 +15,6 @@ BLUE = (0, 0, 255)
 
 p1 = Player(20, 20, RED)
 p2 = Player(780, 580, BLUE)
-b = Bullet(400+300j, 1, 37)
 
 while running:
     # 1. Process input
@@ -60,7 +59,6 @@ while running:
     # 2. Update game
     p1.update(p2)
     p2.update(p1)
-    b.update()
     if p1.bullet is not None:
         p1.bullet.update()
     if p2.bullet is not None:
@@ -75,7 +73,6 @@ while running:
     # Draw things here
     p1.draw(screen)
     p2.draw(screen)
-    b.draw(screen)
     if p1.bullet is not None:
         p1.bullet.draw(screen)
     if p2.bullet is not None:
