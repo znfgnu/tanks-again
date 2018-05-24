@@ -42,6 +42,8 @@ while running:
                 p2.fire_bullet()
             if event.key == pygame.K_COMMA:
                 p1.fire_bullet()
+            if event.key == pygame.K_m:
+                p1.fire_mine()
         if event.type == pygame.KEYUP:
             if event.key == pygame.K_UP:
                 p1.stop_moving()
